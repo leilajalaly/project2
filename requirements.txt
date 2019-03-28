@@ -1,4 +1,0 @@
-alpha_vantage
-Flask
-flask-cqlalchemy
-cassandra-driver
