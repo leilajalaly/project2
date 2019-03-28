@@ -1,0 +1,13 @@
+GET http://35.242.138.254/
+
+###
+
+GET http://35.242.138.254/GOOGL
+
+
+###
+
+POST http://35.242.138.254/
+Content-Type: application/json
+
+{"name":"B"}
