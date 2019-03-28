@@ -1,4 +1,4 @@
 # Project
 
-
-        code
+The app will use external API Alphavantage in which demonstrate 
+        
