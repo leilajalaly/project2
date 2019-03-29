@@ -9,10 +9,24 @@ To use external API, I registered and get a key to have access to their data. In
 There are two get and one post methods in the app. The first one just gives the name of all companies that their data already has been aded and available in database. In this case,presented data are belong to companies: B, FORD, GOOGL,AMZN and MSFT.
 
 	Example:	GET http://35.242.138.254/
+	[
+ 	 "B",
+	  "FORD",
+	  "GOOGL",
+	  "AMZN",
+	  "MSFT"
+	]
 
 The second GET methods take the company name as a variable and return all the information about that.
 
 	Example: 	GET http://35.242.138.254/MSFT
+	{
+     	"2019-03-28",
+    	"2019-03-27",
+   	 "2019-03-26",
+   	 "2019-03-25",
+   	 "2019-03-22",
+   	 "2019-03-21",
 
 The third method is POST method that we just pass the company name. The app extract data for that company from external API and stored data in database.
 
