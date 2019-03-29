@@ -15,8 +15,9 @@ In the first GET method the app will provide the name of company.
         
         
 In the second GET method the app will provide all of the detail about company given name.
+
         @app.route('/<name>', methods = ['GET'])
-def get_data_by_name(name):
+	def get_data_by_name(name):
 	q = Equity.all()
 	count = len(q)
 	names=[]
@@ -62,5 +63,5 @@ The last part of the app create a table by creating columns first
 
 	#Add data to db
 
-	Equity.create(equity_name=equity,equity_timestamp=timestamp,equity_open=open_quote,equity_high=high_quote,equity_low=low_quote,equity_close=close_quote,equity_volume=volume)
+	Equity.create		(equity_name=equity,equity_timestamp=timestamp,equity_open=open_quote,equity_high=high_quote,equity_low=low_quote,equity_close=close_quote,equity_volume=volume)
         
