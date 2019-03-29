@@ -21,7 +21,7 @@ class Equity(db.Model):
 db.sync_db()
 
 
-# Give the list of all company name
+# Give the list of all company name that the relevent data has stored
 @app.route('/', methods = ['GET'])
 def get_all_equity_names():
 	q = Equity.all()
@@ -46,7 +46,7 @@ def get_data_by_name(name):
 		return jsonify({'error':'equity name not found!'}), 404
 
 
-# Post the name of new company	
+# Post the name of new company and take the relevent information from external API and store them in database
 @app.route('/', methods=['POST'])
 def create_records():
 
