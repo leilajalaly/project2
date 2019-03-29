@@ -1,6 +1,6 @@
 # Project
 
-The app will use external API Alphavantage and is able to provid information about dates, open price, close price, low price, high price and volume of equity trade for company given name.
+The app will use external API Alphavantage and (https://www.alphavantage.co/documentation/#daily)is able to provid information about dates, open price, close price, low price, high price and volume of equity trade for company given name.
 To use external API, I registered and get a key to have access to their data. In the app, the key is being used instead of Url and by using "from alpha_vantage.timeseries import TimeSeries" the companies information is readable.
 
 
