@@ -3,6 +3,7 @@
 The app will use external API Alphavantage and is able to provid information about dates, open price, close price, low price, high price and volume of equity trade for companies.
 
 In the first GET method the app will provide the name of company.
+
         @app.route('/', methods = ['GET'])
         def get_all_equity_names():
 	q = Equity.all()
