@@ -9,6 +9,7 @@ app.config['CASSANDRA_KEYSPACE'] = "stocks"
 app.config['CQLENG_ALLOW_SCHEMA_MANAGEMENT'] = True
 db = CQLAlchemy(app)
 
+# creating the model
 class Equity(db.Model):
     equity_name = db.columns.Text(primary_key=True,required=True)
     equity_timestamp = db.columns.List(db.columns.Text,required=False)
@@ -20,6 +21,7 @@ class Equity(db.Model):
 db.sync_db()
 
 
+# Give the list of all company name
 @app.route('/', methods = ['GET'])
 def get_all_equity_names():
 	q = Equity.all()
@@ -29,6 +31,7 @@ def get_all_equity_names():
 		name.append(q[i]['equity_name'])
 	return jsonify(name)
 
+# Return the information about a company with given name
 @app.route('/<name>', methods = ['GET'])
 def get_data_by_name(name):
 	q = Equity.all()
@@ -43,6 +46,7 @@ def get_data_by_name(name):
 		return jsonify({'error':'equity name not found!'}), 404
 
 
+# Post the name of new company	
 @app.route('/', methods=['POST'])
 def create_records():
 
@@ -60,7 +64,6 @@ def create_records():
 	timestamp=list(dates)
 
 	#Extract quotes
-
 	open_quote=[]
 	for i in dates:
 		open_quote.append(data[0][i]['1. open'])
@@ -82,7 +85,6 @@ def create_records():
 		volume.append(data[0][i]['5. volume'])
 
 	#Add data to db
-
 	Equity.create(equity_name=equity,equity_timestamp=timestamp,equity_open=open_quote,equity_high=high_quote,equity_low=low_quote,equity_close=close_quote,equity_volume=volume)
 
 	return jsonify({'message': 'created: /{}'.format(equity)}), 201
